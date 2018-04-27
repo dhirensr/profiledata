@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load staticfiles i18n %}
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+{% block head %}
+<link href="{% static 'css/signup.css' %}" rel="stylesheet">
+{% endblock head %}
+
+{% block main %}
+<div class="page-header">
+    <h1>{% trans 'Profile' %}</h1>
+</div>
+<div class="row">
+    <div class="col-md-10">
+        <section class="articles">
+            <article>
+                <div class="content">
+                    {{ profile.work_exp}}
+                    {{ profile.work_exp}}
+                </div>
+            </article>
+        </section>
+    </div>
+</div>
+{% endblock main %}

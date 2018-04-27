@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+{% load staticfiles i18n %}
+
+{% block head %}
+<link href="{% static 'css/signup.css' %}" rel="stylesheet">
+{% endblock head %}
+
+{% block body %}
+<h1 class="logo"><a href="{% url 'enterdata:viewdata' %}">Profile's Data</a></h1>
+<div class="signup">
+    <h2>{% trans 'Enter Profile' %}</h2>
+    <form action="{% url 'enterdata:enterdata' %}" method="post" role="form">
+        {% csrf_token %}
+        {% for field in form.visible_fields %}
+        <div class="form-group{% if field.errors %} has-error{% endif %}">
+            <label for="{{ field.label }}">{{ field.label }}</label>
+            {{ field }}
+            <!-- {% if field.help_text %}
+                 <span class="help-block">{{ field.help_text|safe }}</span>
+                 {% endif %}
+                 {% for error in field.errors %}
+                 <label class="control-label">{{ error }}</label>
+                 {% endfor %} -->
+        </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary btn-lg">{% trans 'Enter The Profile' %}
+        </button>
+    </form>
+</div>
+{% endblock body %}

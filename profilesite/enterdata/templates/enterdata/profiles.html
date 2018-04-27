@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load staticfiles i18n %}
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+{% block head %}
+<link href="{% static 'css/signup.css' %}" rel="stylesheet">
+{% endblock head %}
+
+{% block main %}
+
+<div class="page-header">
+    <h1>{% trans 'Profiles' %}</h1>
+</div>
+<div class="row">
+    <div class="col-md-10">
+        <section class="articles">
+            {% for profile in profiles %}
+            <article>
+                <h2><a href="/enterdata/profile/{{ profile.id }}">afasf</a></h2>
+                <div class="content">
+                    {{ profile.id}}
+                    {{ profile.bachelors_percent}}
+                </div>
+            </article>
+            {% endfor %}
+        </section>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        {% include 'paginator.html' with paginator=profiles %}
+    </div>
+</div>
+{% endblock main %}
