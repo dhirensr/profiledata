@@ -12,7 +12,7 @@
 <h1 class="logo"><a href="{% url 'enterdata:viewdata' %}">Profile's Data</a></h1>
 <div class="signup">
     <h2>{% trans 'Enter Profile' %}</h2>
-    <form action="{% url 'enterdata:enterdata' %}" method="post" role="form">
+    <form action="{% url 'admin:enterdata_enterdata_add' %}" method="post" role="form">
         {% csrf_token %}
         {% for field in form.visible_fields %}
         <div class="form-group{% if field.errors %} has-error{% endif %}">
@@ -29,5 +29,10 @@
         <button type="submit" class="btn btn-primary btn-lg">{% trans 'Enter The Profile' %}
         </button>
     </form>
+    <div class="wrapper1">
+        <a href="{% url 'enterdata:viewdata' %}"> <button  type="submit" class="btn btn-primary btn-lg move_right1">{% trans 'View Other Profiles' %}
+        </button>
+        </a>
+    </div>
 </div>
 {% endblock body %}

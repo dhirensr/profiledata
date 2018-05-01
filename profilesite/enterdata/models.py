@@ -1,4 +1,5 @@
 from django.db import models
+from jsonfield import JSONField
 
 # Create your models here.
 class EnterData(models.Model):
@@ -11,3 +12,11 @@ class EnterData(models.Model):
     work_exp = models.CharField(max_length=200)
     german_grade = models.CharField(max_length=20,verbose_name="German Grade (For eg: A1,A2,etc)")
     semester = models.CharField(max_length=200,blank = True)
+    hints = JSONField(default=[],blank = True)
+
+
+class HintsData(models.Model):
+
+    hint1 = models.CharField(max_length=200,blank = True)
+    hint2 = models.CharField(max_length=200,blank = True)
+    hint3 = models.CharField(max_length=200,blank = True)

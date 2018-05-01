@@ -5,12 +5,12 @@
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 
 {% block head %}
-<link href="{% static 'css/signup.css' %}" rel="stylesheet">
+<link href="{% static 'css/articles.css' %}" rel="stylesheet">
 {% endblock head %}
 
 {% block main %}
 <div class="page-header">
-    <h1>{% trans 'Profile' %}</h1>
+    <h1 align="center">{% trans 'Profile' %}</h1>
 </div>
 <div class="row">
     <div class="col-md-10">
@@ -22,6 +22,14 @@
                 </div>
             </article>
         </section>
+        <div class="wrapper1">
+            <a href="{% url 'enterdata:viewdata' %}"> <button  type="submit" class="btn btn-primary btn-lg ">{% trans 'View Other Profiles' %}
+            </button>
+            </a>
+            <a href="{% url 'enterdata:enterdata' %}"> <button type="submit" class="btn btn-primary btn-lg move_right">{% trans 'Add a Profile' %}
+            </button>
+            </a>
+        </div>
     </div>
 </div>
 {% endblock main %}
